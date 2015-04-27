@@ -18,7 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MyCinemaTicketActivity extends Activity implements OnClickListener {
-	
+
 	private ImageView back;
 	private Button ticketEdit;
 	private TextView ticketNotSpending, ticketWaitPayment, ticketDone;
@@ -30,14 +30,15 @@ public class MyCinemaTicketActivity extends Activity implements OnClickListener 
 	private TicketNotSpendindFragment ticketNotSpendindFragment;
 	private boolean flag = false;
 
+	// asdsad
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.mine_cinema_ticket);
 		init();
 
-		ft.replace(R.id.mine_cinema_ticket_content,
-				new TicketNotSpendindFragment());
+		ft.replace(R.id.mine_cinema_ticket_content, ticketNotSpendindFragment);
+
 		ft.commit();
 		// 设置点击事件
 		ticketNotSpending.setOnClickListener(this);
@@ -81,12 +82,12 @@ public class MyCinemaTicketActivity extends Activity implements OnClickListener 
 			ticketDone.setTextColor(Color.BLACK);
 			ticketDoneView.setVisibility(View.INVISIBLE);
 			ticketEdit.setVisibility(View.INVISIBLE);
-			
+
 			break;
-			
+
 		case R.id.my_cinema_ticket_wait_payment:// 点击待付款
 			ft.replace(R.id.mine_cinema_ticket_content,
-					ticketWaitPaymentFragment);
+					ticketWaitPaymentFragment, "wait");
 			ticketWaitPayment.setTextColor(this.getResources().getColor(
 					R.color.main_color));
 			ticketWaitPaymentView.setVisibility(View.VISIBLE);
@@ -95,15 +96,16 @@ public class MyCinemaTicketActivity extends Activity implements OnClickListener 
 			ticketDone.setTextColor(Color.BLACK);
 			ticketDoneView.setVisibility(View.INVISIBLE);
 			ticketEdit.setVisibility(View.VISIBLE);
-			
+
 			if (ticketEdit.getText().toString().equals("完成")) {
 				onDoneClick();
 			}
-			
+
 			break;
-			
+
 		case R.id.my_cinema_ticket_done:// 点击已完成
-			ft.replace(R.id.mine_cinema_ticket_content, ticketDoneFragment);
+			ft.replace(R.id.mine_cinema_ticket_content, ticketDoneFragment,
+					"done");
 			ticketDone.setTextColor(this.getResources().getColor(
 					R.color.main_color));
 			ticketDoneView.setVisibility(View.VISIBLE);
@@ -112,13 +114,13 @@ public class MyCinemaTicketActivity extends Activity implements OnClickListener 
 			ticketWaitPayment.setTextColor(Color.BLACK);
 			ticketWaitPaymentView.setVisibility(View.INVISIBLE);
 			ticketEdit.setVisibility(View.VISIBLE);
-			
+
 			if (ticketEdit.getText().toString().equals("完成")) {
 				onDoneClick();
 			}
-			
+
 			break;
-			
+
 		case R.id.my_cinema_ticket_edit:// 点击编辑
 			Toast.makeText(this, "点击了编辑按钮。。。", 0).show();
 
@@ -129,10 +131,10 @@ public class MyCinemaTicketActivity extends Activity implements OnClickListener 
 			}
 
 			break;
-			
+
 		case R.id.my_cinema_ticket_back_img:// 点击返回
 			finish();
-			
+
 			break;
 		}
 		ft.commit();
@@ -141,8 +143,14 @@ public class MyCinemaTicketActivity extends Activity implements OnClickListener 
 	// 当显示编辑的时候
 	public void onEditClick() {
 		flag = true;
-		ticketWaitPaymentFragment.onDelClick(flag);
-		ticketDoneFragment.onDelClick(flag);
+		// 判断当前activity加载的哪个fragment
+		if (fm.findFragmentByTag("wait") != null) {
+			ticketWaitPaymentFragment.onDelClick(flag);
+		}
+		if (fm.findFragmentByTag("done") != null) {
+			ticketDoneFragment.onDelClick(flag);
+		}
+
 		ticketEdit.setText("完成");
 	}
 
@@ -150,8 +158,14 @@ public class MyCinemaTicketActivity extends Activity implements OnClickListener 
 	public void onDoneClick() {
 		flag = false;
 		System.out.println("flag===========" + flag);
-		ticketWaitPaymentFragment.onDelClick(flag);
-		ticketDoneFragment.onDelClick(flag);
+		// 判断当前activity加载的哪个fragment
+		if (fm.findFragmentByTag("wait") != null) {
+			ticketWaitPaymentFragment.onDelClick(flag);
+		}
+		if (fm.findFragmentByTag("done") != null) {
+			ticketDoneFragment.onDelClick(flag);
+		}
+
 		ticketEdit.setText("编辑");
 	}
 }

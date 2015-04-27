@@ -28,8 +28,6 @@ public class TicketWaitPaymentFragment extends Fragment {
 	private View view;
 	private boolean flag = false;
 	
-	//3213213
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
