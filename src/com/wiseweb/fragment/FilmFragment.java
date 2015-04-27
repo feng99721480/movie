@@ -200,7 +200,7 @@ public class FilmFragment extends BaseFragment {
 				"88分钟", "超级好看的电影", "很好看的电影啊", "2015-01-30", R.drawable.runman,
 				"6.8分", "", false, "今天127家影院上映102场"));
 		// getData();
-		new Thread(runnable).start();
+		//new Thread(runnable).start();
 	}
 	Handler handler = new Handler(){
 

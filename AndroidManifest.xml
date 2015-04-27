@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="21" />
+        android:minSdkVersion="16"
+        android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -74,13 +74,15 @@
         </activity>
         <activity
             android:name="com.wiseweb.activity.BuyTicketSelectCinema"
-            android:theme="@style/MyTheme" >
+             ><!-- android:theme="@style/MyTheme" -->
         </activity>
         <activity android:name="com.wiseweb.activity.CinemaSelectFilmActivity" >
         </activity>
         <activity android:name="com.wiseweb.activity.CinemaDetailActivity" >
         </activity>
         <activity android:name="com.wiseweb.activity.SelectSeatBuyTicketActivity" >
+        </activity>
+        <activity android:name="com.wiseweb.activity.MyCinemaTicketActivity">
         </activity>
 
         <!-- 一键分享的 -->

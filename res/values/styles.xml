@@ -18,9 +18,9 @@
     <item name="android:windowNoTitle">true</item>
     </style>
     
-    <style name="MyTheme" parent="AppBaseTheme">  
+      <!-- <style name="MyTheme" parent="AppBaseTheme">  
         <item name="vpiTabPageIndicatorStyle">@style/MyWidget.TabPageIndicator</item>  
-        <!-- <item name="android:windowBackground">@drawable/runman</item> -->
+        <item name="android:windowBackground">@drawable/runman</item>
         <item name="android:windowNoTitle">true</item>  
         <item name="android:animationDuration">5000</item>  
         <item name="android:windowContentOverlay">@null</item>  
@@ -40,7 +40,7 @@
     <style name="MyTextAppearance.TabPageIndicator" parent="Widget">  
         <item name="android:textStyle">bold</item>  
         <item name="android:textColor">@color/main_color</item>  
-    </style> 
+    </style>    -->
     <!-- film rating style -->
     <style name="film_rating_style" parent="@android:style/Widget.RatingBar">
         <item name="android:progressDrawable">@drawable/rating_smaller_bar</item>

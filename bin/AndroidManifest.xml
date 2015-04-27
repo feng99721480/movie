@@ -5,8 +5,8 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="14"
-        android:targetSdkVersion="21" />
+        android:minSdkVersion="16"
+        android:targetSdkVersion="19" />
 
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +17,8 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
-	<uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
     <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" >
     </permission>
 
@@ -45,7 +46,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
         android:theme="@style/AppBaseTheme" >
         <activity android:name="com.wiseweb.activity.MainActivity" >
@@ -73,13 +74,15 @@
         </activity>
         <activity
             android:name="com.wiseweb.activity.BuyTicketSelectCinema"
-            android:theme="@style/MyTheme" >
+             ><!-- android:theme="@style/MyTheme" -->
         </activity>
         <activity android:name="com.wiseweb.activity.CinemaSelectFilmActivity" >
         </activity>
         <activity android:name="com.wiseweb.activity.CinemaDetailActivity" >
         </activity>
         <activity android:name="com.wiseweb.activity.SelectSeatBuyTicketActivity" >
+        </activity>
+        <activity android:name="com.wiseweb.activity.MyCinemaTicketActivity">
         </activity>
 
         <!-- 一键分享的 -->
@@ -91,7 +94,9 @@
             android:windowSoftInputMode="stateHidden|adjustResize" >
             <intent-filter>
                 <data android:scheme="tencent100371282" />
+
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.BROWSABLE" />
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
@@ -102,6 +107,15 @@
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:windowSoftInputMode="stateHidden|adjustResize" >
+        </activity>
+        <activity 
+            android:name="com.wiseweb.activity.MyFilmActivity">
+        </activity>
+        <activity 
+            android:name="com.wiseweb.activity.LoginActivity">
+        </activity>
+        <activity 
+            android:name="com.wiseweb.activity.FilmSearchResultActivity">
         </activity>
         <!-- 百度定位 -->
         <service
@@ -115,13 +129,24 @@
             </intent-filter>
         </service>
         <service 
+            android:name="com.wiseweb.service.LocationService">
+        </service>
+        
+        <!-- <service
             android:name="com.wiseweb.service.CheckUpdate"
-            android:enabled="true">
-            <intent-filter >
-                <action android:name="com.wiseweb.activity.UPDATE">
+            android:enabled="true" >
+            <intent-filter>
+                <action android:name="com.wiseweb.activity.UPDATE" >
                 </action>
             </intent-filter>
-        </service>
+        </service> -->
+
+        <!-- <uses-library android:name="android.test.runner" /> -->
     </application>
+    <!-- 记住这个一要放在application外面，不然会出现配置错误 信息 -->
+    <!-- <instrumentation
+        android:name="android.test.InstrumentationTestRunner"
+        android:label="Tests for My App"
+        android:targetPackage="com.wiseweb.movie" /> -->
 
 </manifest>

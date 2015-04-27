@@ -20,7 +20,7 @@ public class FilmSearchResultActivity extends Activity {
 	private ListView resultList;
 	private FilmSearchResultListAdapter resultAdapter;
 	private int[] images = {R.drawable.runman,R.drawable.runman};
-	private String[] filmNames = {"奔跑吧，兄弟","速度与激情"};
+	private String[] filmNames = {"奔跑吧，兄弟","速度与激� "};
 	private String[] filmTypes = {"喜剧  爱情 ","冒险  剧情"};
 	private String[] actionTimes = {"2015-04-01","2015-04-15"};
 	@Override

@@ -32,4 +32,9 @@
 	<string name="iwant">我想看的</string>
 	<string name="iscore">我评分的</string>
 	<string name="myfilm">我的电影</string>
+	<string name="my_cinema_ticket">我的电影票</string>
+	<string name="ticket_not_spending">未消费</string>
+	<string name="ticket_wait_payment">待付款</string>
+	<string name="ticket_done">已完成</string>
+	<string name="ticket_edit">编辑</string>
 </resources>
